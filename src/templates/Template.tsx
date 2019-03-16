@@ -3,23 +3,16 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import 'katex/dist/katex.min.css'
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
-  onSidebarContentExpand,
-  expandedKey,
-}) {
+export default function Template({ data }: any) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
   const { frontmatter, html, id } = markdownRemark
-  // if (expandedKey !== id) {
-  //   onSidebarContentExpand(id)
-  // }
 
   return (
     <Layout sidebarRoot={frontmatter.root}>
       <div className="blog-post-container">
         <div className="blog-post">
-          {/* <h1>{frontmatter.title}</h1>
-        <h5>{frontmatter.date}</h5> */}
+          <h1>{frontmatter.title}</h1>
+          <h5>{frontmatter.date}</h5>
           <div
             className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}

@@ -2,16 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import Header from '../Header'
+import { Header } from './Header'
 import './Layout.css'
 import ResponsiveSidebar from './ResponsiveSidebar'
 import Container from './Container'
 import ResponsiveAnchor from './ResponsiveAnchor'
 import ResponsiveTopBar from './ResponsiveTopBar'
 import { pathPrefix } from '../../gatsby-config'
-import MediaQuery from 'react-responsive'
+import { Layout } from 'antd'
 
-export default function({ children, sidebarRoot, onSetSidebarDocked }) {
+export default function({ children, sidebarRoot }: any) {
   return (
     <StaticQuery
       query={graphql`
@@ -34,7 +34,7 @@ export default function({ children, sidebarRoot, onSetSidebarDocked }) {
       `}
       render={data => {
         const allPosts = data.allMarkdownRemark.edges.map(
-          edge => edge.node.fields.slug
+          (edge: any) => edge.node.fields.slug
         )
         let onPostPage
         if (typeof window !== 'undefined') {
@@ -53,7 +53,7 @@ export default function({ children, sidebarRoot, onSetSidebarDocked }) {
         }
 
         return (
-          <>
+          <Layout>
             <Helmet
               title={data.site.siteMetadata.title}
               meta={[
@@ -70,7 +70,7 @@ export default function({ children, sidebarRoot, onSetSidebarDocked }) {
             <Container sidebarDocked={false} onPostPage={onPostPage}>
               {children}
             </Container>
-          </>
+          </Layout>
         )
       }}
     />

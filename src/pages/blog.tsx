@@ -7,10 +7,10 @@ const BlogPage = ({
   data: {
     allMarkdownRemark: { edges },
   },
-}) => {
+}: any) => {
   const posts = edges
-    .filter(edge => !!edge.node.frontmatter.date)
-    .map(edge => <PostCard key={edge.node.id} post={edge.node} />)
+    .filter((edge: any) => !!edge.node.frontmatter.date)
+    .map((edge: any) => <PostCard key={edge.node.id} post={edge.node} />)
   return (
     <Layout>
       <div>{posts}</div>
