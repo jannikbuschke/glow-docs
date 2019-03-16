@@ -9,7 +9,6 @@ const IndexPage = () => {
     <Layout>
       <div>
         <div align="center">
-          <br />
           <p
             style={{
               color: 'cornflowerblue',

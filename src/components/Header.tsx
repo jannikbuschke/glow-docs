@@ -13,7 +13,7 @@ export class Header extends Component<Props> {
     const { siteTitle } = this.props
     return (
       <AntdHeader>
-        <Menu>
+        <Menu theme="dark">
           <Menu.Item>
             <Link to="/" style={{ textDecoration: 'none' }}>
               {siteTitle}

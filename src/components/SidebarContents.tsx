@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { graphql, StaticQuery, Link } from 'gatsby'
 import Menu from 'antd/lib/menu'
 import 'antd/lib/menu/style/css'
-import './SidebarContents.css'
 import { pathPrefix } from '../../gatsby-config'
 
 const SubMenu = Menu.SubMenu
@@ -122,11 +121,8 @@ export default class SidebarContents extends Component {
 
           const defaultOpenKeys = dir.map(item => item.key)
           return (
-            <Menu
-              mode="inline"
-              defaultOpenKeys={defaultOpenKeys}
-              inlineIndent={12}
-            >
+            <Menu mode="inline" style={{ height: '100%', borderRight: 0 }}>
+              <Menu.Item>hello world</Menu.Item>
               {loop(tree)}
             </Menu>
           )
