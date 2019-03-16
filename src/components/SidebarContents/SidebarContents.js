@@ -63,10 +63,6 @@ const sortTree = tree => {
 }
 
 export default class SidebarContents extends Component {
-  onSetSidebarOpen = () => {
-    this.props.onSetSidebarOpen(false)
-  }
-
   render() {
     const { root } = this.props
     return (

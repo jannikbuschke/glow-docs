@@ -4,10 +4,6 @@ import sizeMe from 'react-sizeme'
 import Menu from '../Menu'
 
 export default class Header extends Component {
-  componentDidUpdate = () => {
-    this.props.updateHeaderHeight(this.props.size.height)
-  }
-
   render() {
     const { siteTitle } = this.props
     return (
@@ -46,7 +42,6 @@ export default class Header extends Component {
               </Link>
             </h1>
           </div>
-          <Menu />
         </div>
       </div>
     )
