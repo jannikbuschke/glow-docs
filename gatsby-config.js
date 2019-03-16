@@ -3,6 +3,7 @@ module.exports = {
     title: 'Gatsby Markdown Starter',
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
@@ -28,8 +29,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `contents`,
-        path: `${__dirname}/contents`
-      }
+        path: `${__dirname}/contents`,
+      },
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
@@ -53,9 +54,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              className: "post-toc-anchor"
-            }
-          }
+              className: 'post-toc-anchor',
+            },
+          },
         ],
       },
     },
@@ -64,5 +65,5 @@ module.exports = {
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],
-  pathPrefix: "/",
+  pathPrefix: '/',
 }

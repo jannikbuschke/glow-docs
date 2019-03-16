@@ -12,6 +12,7 @@
     "gatsby-plugin-offline": "2.0.25",
     "gatsby-plugin-react-helmet": "3.0.10",
     "gatsby-plugin-sharp": "2.0.29",
+    "gatsby-plugin-typescript": "^2.0.11",
     "gatsby-remark-autolink-headers": "2.0.16",
     "gatsby-remark-katex": "2.0.6",
     "gatsby-source-filesystem": "2.0.27",
@@ -39,7 +40,10 @@
   "devDependencies": {
     "gatsby-plugin-remove-trailing-slashes": "2.0.10",
     "gh-pages": "2.0.1",
-    "prettier": "1.16.4"
+    "prettier": "1.16.4",
+    "@types/node": "11.11.3",
+    "@types/react": "16.8.8",
+    "@types/react-dom": "16.8.2"
   },
   "repository": {
     "type": "git",
