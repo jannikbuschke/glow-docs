@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Button from 'antd/lib/button'
 import 'antd/lib/button/style/css'
-import SidebarContents from '../SidebarContents'
-import TableOfContents from '../TableOfContents'
+import SidebarContents from './SidebarContents'
+import TableOfContents from './TableOfContents'
 
 export default class ResponsiveTopBar extends Component {
   render() {

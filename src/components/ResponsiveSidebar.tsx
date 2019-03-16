@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SidebarContents from '../SidebarContents'
+import SidebarContents from './SidebarContents'
 
 export default class ResponsiveSidebar extends Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout/Layout'
+import Layout from '../components/Layout'
 import 'katex/dist/katex.min.css'
 
 export default function Template({

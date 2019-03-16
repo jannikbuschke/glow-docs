@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TableOfContents from '../TableOfContents'
+import TableOfContents from './TableOfContents'
 
 export default class ResponsiveAnchor extends Component {
   render() {
