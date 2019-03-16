@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import { graphql, StaticQuery, Link } from "gatsby"
-import { connect } from "react-redux"
-import { getSidebarState } from '../../store/selectors';
-import { onSetSidebarOpen } from '../../actions/layout'
+import { graphql, StaticQuery, Link } from 'gatsby'
 import Menu from 'antd/lib/menu'
 import 'antd/lib/menu/style/css'
 import './SidebarContents.css'
@@ -10,19 +7,19 @@ import { pathPrefix } from '../../../gatsby-config'
 
 const SubMenu = Menu.SubMenu
 
-const convertToTree = (data) => {
+const convertToTree = data => {
   const list = data.map(edge => {
-      return ({
-        path: edge.node.fields.slug,
-        key: edge.node.id,
-        title: edge.node.frontmatter.title,
-        parents: edge.node.frontmatter.parents
-      })
-    })
+    return {
+      path: edge.node.fields.slug,
+      key: edge.node.id,
+      title: edge.node.frontmatter.title,
+      parents: edge.node.frontmatter.parents,
+    }
+  })
   return constructTree(list)
 }
 
-const constructTree = (list) => {
+const constructTree = list => {
   let tree = []
   let dir = []
   list.forEach(item => {
@@ -30,18 +27,22 @@ const constructTree = (list) => {
     else {
       let subtree = tree
       for (let i = 0; i < item.parents.length; i++) {
-        if (subtree
-          .filter(node => node.title === item.parents[i] && node.children)
-          .length === 0) {
+        if (
+          subtree.filter(
+            node => node.title === item.parents[i] && node.children
+          ).length === 0
+        ) {
           const newNode = {
-            key: "tree/" + item.parents[i],
+            key: 'tree/' + item.parents[i],
             title: item.parents[i],
-            children: []
+            children: [],
           }
           subtree.push(newNode)
           dir.push(newNode)
         }
-        subtree = subtree.find(node => node.title === item.parents[i] && node.children).children
+        subtree = subtree.find(
+          node => node.title === item.parents[i] && node.children
+        ).children
       }
       subtree.push(item)
     }
@@ -50,22 +51,23 @@ const constructTree = (list) => {
 }
 
 const sortTree = tree => {
-  tree.sort((a,b)=> {
-    if (((a.children && b.children) || 
-    (!a.children && !b.children)) &&
-    a.title > b.title) return 1
+  tree.sort((a, b) => {
+    if (
+      ((a.children && b.children) || (!a.children && !b.children)) &&
+      a.title > b.title
+    )
+      return 1
     else if (a.children) return 1
     return -1
   })
 }
 
-class SidebarContents extends Component {
+export default class SidebarContents extends Component {
   onSetSidebarOpen = () => {
     this.props.onSetSidebarOpen(false)
   }
 
   render() {
-    const { expandedKey } = this.props.sidebar
     const { root } = this.props
     return (
       <StaticQuery
@@ -88,55 +90,52 @@ class SidebarContents extends Component {
           }
         `}
         render={data => {
-          const [tree, dir] = convertToTree(data.allMarkdownRemark.edges.filter(node => 
-            node.node.fields.slug.startsWith(root)
-          ))
-          sortTree(tree)
-          const loop = data => data.map((item) => {
-            if (item.children) {
-              sortTree(item.children)
-              return (
-                <SubMenu key={item.key} title={<span style={{fontWeight:900}}>{item.title}</span>}>
-                  {loop(item.children)}
-                </SubMenu>
-              )
-            }
-            return (
-              <Menu.Item key={item.key}>
-                <Link to={item.path} onClick={this.onSetSidebarOpen}>{item.title}</Link>
-              </Menu.Item>
+          const [tree, dir] = convertToTree(
+            data.allMarkdownRemark.edges.filter(node =>
+              node.node.fields.slug.startsWith(root)
             )
-          })
-          const path = window.location.pathname.replace(pathPrefix.slice(0,-1),"")
-          const selectedKeys = data.allMarkdownRemark.edges
-            .filter(item => path === item.node.fields.slug ||
-              (path.slice(0,-1) === item.node.fields.slug && path.slice(-1) === '/'))
-            .length > 0 ? [expandedKey] : []
+          )
+          sortTree(tree)
+          const loop = data =>
+            data.map(item => {
+              if (item.children) {
+                sortTree(item.children)
+                return (
+                  <SubMenu
+                    key={item.key}
+                    title={
+                      <span style={{ fontWeight: 900 }}>{item.title}</span>
+                    }
+                  >
+                    {loop(item.children)}
+                  </SubMenu>
+                )
+              }
+              return (
+                <Menu.Item key={item.key}>
+                  <Link to={item.path} onClick={this.onSetSidebarOpen}>
+                    {item.title}
+                  </Link>
+                </Menu.Item>
+              )
+            })
+          const path = window.location.pathname.replace(
+            pathPrefix.slice(0, -1),
+            ''
+          )
+
           const defaultOpenKeys = dir.map(item => item.key)
           return (
-              <Menu 
-                mode="inline"
-                defaultOpenKeys={defaultOpenKeys}
-                selectedKeys={selectedKeys}
-                inlineIndent={12}
-              >
-                {loop(tree)}
-              </Menu>
+            <Menu
+              mode="inline"
+              defaultOpenKeys={defaultOpenKeys}
+              inlineIndent={12}
+            >
+              {loop(tree)}
+            </Menu>
           )
         }}
       />
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    sidebar: getSidebarState(state)
-  }
-}
-
-const mapDispatchToProps = {
-  onSetSidebarOpen
-}
-
-export default connect(mapStateToProps, mapDispatchToProps) (SidebarContents)

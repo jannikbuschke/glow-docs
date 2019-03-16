@@ -1,24 +1,21 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { getHeaderHeightState } from '../../store/selectors';
+import React, { Component } from 'react'
 
-class Container extends Component {
+export default class Container extends Component {
   render() {
-    const {
-      sidebarDocked, 
-      headerHeight, 
-      onPostPage, 
-    } = this.props;
+    const { sidebarDocked, headerHeight, onPostPage } = this.props
 
     return (
       <div
         style={{
-          position: "absolute",
-          top: (!sidebarDocked && onPostPage) ? headerHeight + 70: headerHeight + 30,
-          left: ((!sidebarDocked && onPostPage) || !onPostPage) ? 0 : "20%",
-          right: ((!sidebarDocked && onPostPage) || !onPostPage) ? 0 : "15%",
+          position: 'absolute',
+          top:
+            !sidebarDocked && onPostPage
+              ? headerHeight + 70
+              : headerHeight + 30,
+          left: (!sidebarDocked && onPostPage) || !onPostPage ? 0 : '20%',
+          right: (!sidebarDocked && onPostPage) || !onPostPage ? 0 : '15%',
           bottom: 0,
-          overflow: !sidebarDocked ? "auto" : "visible",
+          overflow: !sidebarDocked ? 'auto' : 'visible',
         }}
       >
         <div
@@ -35,11 +32,3 @@ class Container extends Component {
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return { 
-    headerHeight: getHeaderHeightState(state),
-  }
-}
-
-export default connect(mapStateToProps) (Container);
