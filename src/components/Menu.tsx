@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 
-export default () => {
+export const Menu = () => {
   return (
     <StaticQuery
       query={graphql`
