@@ -34,33 +34,26 @@ const constructTree = list => {
   deleteNode.sort((a, b) => b - a).forEach(index => list.splice(index, 1))
 }
 
-export class TableOfContents extends Component {
-  public state = {
-    anchors: [],
-  }
+export function TableOfContents() {
+  const [anchors, setAnchors] = React.useState<any[]>([])
 
-  componentDidMount() {
+  React.useLayoutEffect(() => {
     const anchors = document.getElementsByClassName('post-toc-anchor')
-    this.setState({
-      anchors: filterAnchorDetails(anchors),
-    })
-  }
+    setAnchors(filterAnchorDetails(anchors))
+  }, [])
 
-  render() {
-    const { anchors } = this.state
-    const loop = data =>
-      data.map(item => {
-        if (item.children.length > 0) {
-          return (
-            <Link href={item.href} title={item.title} key={item.href}>
-              {loop(item.children)}
-            </Link>
-          )
-        }
-        return <Link href={item.href} title={item.title} key={item.href} />
-      })
-    return (
-      <Anchor style={{ margin: '50px 50px 0px 0px' }}>{loop(anchors)}</Anchor>
-    )
-  }
+  const loop = data =>
+    data.map(item => {
+      if (item.children.length > 0) {
+        return (
+          <Link href={item.href} title={item.title} key={item.href}>
+            {loop(item.children)}
+          </Link>
+        )
+      }
+      return <Link href={item.href} title={item.title} key={item.href} />
+    })
+  return (
+    <Anchor style={{ margin: '50px 50px 0px 0px' }}>{loop(anchors)}</Anchor>
+  )
 }
