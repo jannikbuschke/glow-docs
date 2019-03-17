@@ -3,16 +3,12 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { Header } from './Header'
-import ResponsiveSidebar from './ResponsiveSidebar'
-import Container from './Container'
-import ResponsiveAnchor from './ResponsiveAnchor'
-import ResponsiveTopBar from './ResponsiveTopBar'
 import { pathPrefix } from '../../gatsby-config'
 import { Layout, Breadcrumb } from 'antd'
 import { SidebarContents } from './SidebarContents'
 const { Sider, Content } = Layout
 
-export default function({ children, sidebarRoot }: any) {
+export function RootLayout({ children, sidebarRoot }: any) {
   return (
     <StaticQuery
       query={graphql`
