@@ -114,10 +114,8 @@ export const SidebarContents = ({ root }: Props) => {
               </Menu.Item>
             )
           })
-        const path = window.location.pathname.replace(
-          pathPrefix.slice(0, -1),
-          ''
-        )
+
+        // const path = location.pathname.replace(pathPrefix.slice(0, -1), '')
 
         const defaultOpenKeys = dir.map(item => item.key)
         return (
@@ -125,7 +123,11 @@ export const SidebarContents = ({ root }: Props) => {
             mode="inline"
             style={{ minWidth: 180, height: '100%', borderRight: 0 }}
             defaultOpenKeys={defaultOpenKeys}
-            selectedKeys={[window.location.pathname]}
+            selectedKeys={
+              typeof window !== 'undefined'
+                ? [window.location.pathname]
+                : undefined
+            }
           >
             {loop(tree)}
           </Menu>
