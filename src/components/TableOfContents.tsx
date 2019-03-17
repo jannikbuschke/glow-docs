@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Anchor from 'antd/lib/anchor'
 import 'antd/lib/anchor/style/css'
-import './TableOfContents.css'
 
 const { Link } = Anchor
 
