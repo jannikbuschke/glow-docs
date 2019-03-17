@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { RootLayout as Layout } from '../components/Layout'
-import { PostCard } from '../components/PostCard'
+import { RootLayout as Layout } from '../Layout'
+import { PostCard } from '../PostCard'
 
 const BlogPage = ({
   data: {

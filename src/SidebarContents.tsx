@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { graphql, StaticQuery, Link } from 'gatsby'
 import Menu from 'antd/lib/menu'
 import 'antd/lib/menu/style/css'
-import { pathPrefix } from '../../gatsby-config'
+import { pathPrefix } from '../gatsby-config'
 
 const SubMenu = Menu.SubMenu
 

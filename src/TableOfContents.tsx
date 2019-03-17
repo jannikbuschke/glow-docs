@@ -34,7 +34,7 @@ const constructTree = list => {
   deleteNode.sort((a, b) => b - a).forEach(index => list.splice(index, 1))
 }
 
-export default class TableOfContents extends Component {
+export class TableOfContents extends Component {
   public state = {
     anchors: [],
   }
@@ -48,7 +48,6 @@ export default class TableOfContents extends Component {
 
   render() {
     const { anchors } = this.state
-    const { offsetTop, affix } = this.props
     const loop = data =>
       data.map(item => {
         if (item.children.length > 0) {
@@ -61,15 +60,7 @@ export default class TableOfContents extends Component {
         return <Link href={item.href} title={item.title} key={item.href} />
       })
     return (
-      <Anchor
-        offsetTop={offsetTop}
-        affix={affix}
-        style={{ margin: '50px 50px 0px 0px' }}
-      >
-        {loop(anchors)}
-        {/* {(anchors.length > 1 && loop(anchors)) ||
-         (anchors.length === 1 && loop(anchors[0].children))} */}
-      </Anchor>
+      <Anchor style={{ margin: '50px 50px 0px 0px' }}>{loop(anchors)}</Anchor>
     )
   }
 }

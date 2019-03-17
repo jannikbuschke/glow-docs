@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { RootLayout as Layout } from '../components/Layout'
+import { RootLayout as Layout } from '../Layout'
 
 export default function Template({ data }: any) {
   const { markdownRemark } = data // data.markdownRemark holds our post data

@@ -1,12 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { Header } from './Header'
-import { pathPrefix } from '../../gatsby-config'
+import { pathPrefix } from '../gatsby-config'
 import { Layout, Breadcrumb } from 'antd'
 import { SidebarContents } from './SidebarContents'
-import TableOfContents from './TableOfContents'
+import { TableOfContents } from './TableOfContents'
 const { Sider, Content } = Layout
 
 export function RootLayout({ children, sidebarRoot }: any) {
