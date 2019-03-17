@@ -61,7 +61,11 @@ const sortTree = tree => {
   })
 }
 
-export default class SidebarContents extends Component {
+interface Props {
+  root: any
+}
+
+export class SidebarContents extends Component<Props> {
   render() {
     const { root } = this.props
     return (
@@ -121,7 +125,11 @@ export default class SidebarContents extends Component {
 
           const defaultOpenKeys = dir.map(item => item.key)
           return (
-            <Menu mode="inline" style={{ height: '100%', borderRight: 0 }}>
+            <Menu
+              mode="inline"
+              style={{ height: '100%', borderRight: 0 }}
+              defaultOpenKeys={defaultOpenKeys}
+            >
               <Menu.Item>hello world</Menu.Item>
               {loop(tree)}
             </Menu>

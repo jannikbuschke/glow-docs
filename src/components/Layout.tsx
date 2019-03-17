@@ -9,7 +9,7 @@ import ResponsiveAnchor from './ResponsiveAnchor'
 import ResponsiveTopBar from './ResponsiveTopBar'
 import { pathPrefix } from '../../gatsby-config'
 import { Layout, Breadcrumb } from 'antd'
-import SidebarContents from './SidebarContents'
+import { SidebarContents } from './SidebarContents'
 const { Sider, Content } = Layout
 
 export default function({ children, sidebarRoot }: any) {
@@ -79,7 +79,7 @@ export default function({ children, sidebarRoot }: any) {
                 height: '100%',
               }}
             >
-              <SidebarContents />
+              <SidebarContents root={sidebarRoot} />
               <Layout
                 style={{
                   padding: '0px 24px 24px',
