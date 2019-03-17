@@ -35,11 +35,8 @@ const constructTree = list => {
 }
 
 export default class TableOfContents extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      anchors: [],
-    }
+  public state = {
+    anchors: [],
   }
 
   componentDidMount() {
@@ -47,10 +44,6 @@ export default class TableOfContents extends Component {
     this.setState({
       anchors: filterAnchorDetails(anchors),
     })
-  }
-
-  onSetAnchorOpen = () => {
-    this.props.onSetAnchorOpen(false)
   }
 
   render() {
@@ -70,8 +63,8 @@ export default class TableOfContents extends Component {
     return (
       <Anchor
         offsetTop={offsetTop}
-        onClick={this.onSetAnchorOpen}
         affix={affix}
+        style={{ margin: '50px 50px 0px 0px' }}
       >
         {loop(anchors)}
         {/* {(anchors.length > 1 && loop(anchors)) ||

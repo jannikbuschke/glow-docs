@@ -4,7 +4,7 @@ const path = require('path')
 module.exports = exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const Tempalte = path.resolve(`src/templates/Template.tsx`)
+  const Template = path.resolve(`src/templates/Template.tsx`)
 
   return graphql(`
     {
@@ -29,7 +29,7 @@ module.exports = exports.createPages = ({ actions, graphql }) => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: replacePath(node.fields.slug),
-        component: Tempalte,
+        component: Template,
         context: {}, // additional data can be passed via context
       })
     })

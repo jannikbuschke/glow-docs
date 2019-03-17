@@ -65,77 +65,72 @@ interface Props {
   root: any
 }
 
-export class SidebarContents extends Component<Props> {
-  render() {
-    const { root } = this.props
-    return (
-      <StaticQuery
-        query={graphql`
-          query sidebarContentQuery {
-            allMarkdownRemark(sort: { order: ASC, fields: [fields___slug] }) {
-              edges {
-                node {
-                  fields {
-                    slug
-                  }
-                  id
-                  frontmatter {
-                    title
-                    parents
-                  }
+export const SidebarContents = ({ root }: Props) => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query sidebarContentQuery {
+          allMarkdownRemark(sort: { order: ASC, fields: [fields___slug] }) {
+            edges {
+              node {
+                fields {
+                  slug
+                }
+                id
+                frontmatter {
+                  title
+                  parents
                 }
               }
             }
           }
-        `}
-        render={data => {
-          const [tree, dir] = convertToTree(
-            data.allMarkdownRemark.edges.filter(node =>
-              node.node.fields.slug.startsWith(root)
-            )
+        }
+      `}
+      render={data => {
+        const [tree, dir] = convertToTree(
+          data.allMarkdownRemark.edges.filter(node =>
+            node.node.fields.slug.startsWith(root)
           )
-          sortTree(tree)
-          const loop = data =>
-            data.map(item => {
-              if (item.children) {
-                sortTree(item.children)
-                return (
-                  <SubMenu
-                    key={item.key}
-                    title={
-                      <span style={{ fontWeight: 900 }}>{item.title}</span>
-                    }
-                  >
-                    {loop(item.children)}
-                  </SubMenu>
-                )
-              }
+        )
+        sortTree(tree)
+        const loop = data =>
+          data.map(item => {
+            if (item.children) {
+              sortTree(item.children)
               return (
-                <Menu.Item key={item.key}>
-                  <Link to={item.path} onClick={this.onSetSidebarOpen}>
-                    {item.title}
-                  </Link>
-                </Menu.Item>
+                <SubMenu
+                  key={item.key}
+                  title={<span style={{ fontWeight: 900 }}>{item.title}</span>}
+                >
+                  {loop(item.children)}
+                </SubMenu>
               )
-            })
-          const path = window.location.pathname.replace(
-            pathPrefix.slice(0, -1),
-            ''
-          )
+            }
+            return (
+              <Menu.Item key={item.path}>
+                <Link to={item.path}>
+                  <div>{item.title}</div>
+                </Link>
+              </Menu.Item>
+            )
+          })
+        const path = window.location.pathname.replace(
+          pathPrefix.slice(0, -1),
+          ''
+        )
 
-          const defaultOpenKeys = dir.map(item => item.key)
-          return (
-            <Menu
-              mode="inline"
-              style={{ height: '100%', borderRight: 0 }}
-              defaultOpenKeys={defaultOpenKeys}
-            >
-              <Menu.Item>hello world</Menu.Item>
-              {loop(tree)}
-            </Menu>
-          )
-        }}
-      />
-    )
-  }
+        const defaultOpenKeys = dir.map(item => item.key)
+        return (
+          <Menu
+            mode="inline"
+            style={{ minWidth: 180, height: '100%', borderRight: 0 }}
+            defaultOpenKeys={defaultOpenKeys}
+            selectedKeys={[window.location.pathname]}
+          >
+            {loop(tree)}
+          </Menu>
+        )
+      }}
+    />
+  )
 }

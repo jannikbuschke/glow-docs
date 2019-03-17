@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { RootLayout as Layout } from '../components/Layout'
-import 'katex/dist/katex.min.css'
 
 export default function Template({ data }: any) {
   const { markdownRemark } = data // data.markdownRemark holds our post data
@@ -11,7 +10,7 @@ export default function Template({ data }: any) {
     <Layout sidebarRoot={frontmatter.root}>
       <div className="blog-post-container">
         <div className="blog-post">
-          <h1>{frontmatter.title}</h1>
+          {/* <h1>{frontmatter.title}</h1> */}
           <h5>{frontmatter.date}</h5>
           <div
             className="blog-post-content"

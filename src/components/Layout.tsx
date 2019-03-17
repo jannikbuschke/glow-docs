@@ -6,6 +6,7 @@ import { Header } from './Header'
 import { pathPrefix } from '../../gatsby-config'
 import { Layout, Breadcrumb } from 'antd'
 import { SidebarContents } from './SidebarContents'
+import TableOfContents from './TableOfContents'
 const { Sider, Content } = Layout
 
 export function RootLayout({ children, sidebarRoot }: any) {
@@ -16,6 +17,7 @@ export function RootLayout({ children, sidebarRoot }: any) {
           site {
             siteMetadata {
               title
+              centerTitle
             }
           }
           allMarkdownRemark {
@@ -49,6 +51,8 @@ export function RootLayout({ children, sidebarRoot }: any) {
           }
         }
 
+        const { title, centerTitle } = data.site.siteMetadata
+
         return (
           <div
             style={{
@@ -66,39 +70,28 @@ export function RootLayout({ children, sidebarRoot }: any) {
             >
               <html lang="en" />
             </Helmet>
-            <Header siteTitle={data.site.siteMetadata.title} />
+            <Header siteTitle={title} centerTitle={centerTitle} />
 
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: '200px 1fr',
+                gridTemplateColumns: 'auto 1fr auto',
                 height: '100%',
               }}
             >
               <SidebarContents root={sidebarRoot} />
-              <Layout
-                style={{
-                  padding: '0px 24px 24px',
-                  backgroundColor: '#f0f2f5',
-                }}
-              >
-                <Breadcrumb style={{ margin: '16px' }}>
-                  <Breadcrumb.Item>
-                    <Link to="" style={{ padding: 4 }}>
-                      Home
-                    </Link>
-                  </Breadcrumb.Item>
-                  <Breadcrumb.Item>
-                    <Link to="" style={{ padding: 4 }}>
-                      List
-                    </Link>
-                  </Breadcrumb.Item>
-                  <Breadcrumb.Item>
-                    <Link to="" style={{ padding: 4 }}>
-                      App
-                    </Link>
-                  </Breadcrumb.Item>
-                </Breadcrumb>
+              <Layout>
+                {/* <Breadcrumb
+                  style={{ padding: '16px', backgroundColor: '#f0f2f5' }}
+                >
+                  {window.location.pathname.split('/').map(part => (
+                    <Breadcrumb.Item>
+                      <Link to={part} style={{ padding: 4 }}>
+                        {part}
+                      </Link>
+                    </Breadcrumb.Item>
+                  ))}
+                </Breadcrumb> */}
                 <Content
                   style={{
                     background: '#fff',
@@ -109,6 +102,7 @@ export function RootLayout({ children, sidebarRoot }: any) {
                   {children}
                 </Content>
               </Layout>
+              <TableOfContents />
             </div>
             <Layout>
               <Sider

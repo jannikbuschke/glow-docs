@@ -1,10 +1,10 @@
 [
-  { 
+  {
     "name": "Docs",
-    "link":  "/docs/get-started/introduction"
+    "link": "/docs/get-started/introduction"
   },
   {
     "name": "Blog",
-    "link": "/blog"
+    "link": "/blog/first-blog"
   }
 ]

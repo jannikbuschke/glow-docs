@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Markdown Starter',
+    title: 'docs',
+    centerTitle: 'DOCS',
   },
   plugins: [
     `gatsby-plugin-typescript`,
