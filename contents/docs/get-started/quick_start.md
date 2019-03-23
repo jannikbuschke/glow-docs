@@ -10,81 +10,43 @@ parents: ['Get Started']
 
 The website is based on Gatsby, full documentation for Gatsby lives [on the website](https://gatsbyjs.org/).
 
-## Create a Gatsby site.
+## Prerequisites
 
-Use the Gatsby CLI to create a new site, specifying the default starter.
+[.NET Core 2.1 or above](https://dotnet.microsoft.com/download/dotnet-core/2.1)
 
-```sh
-gatsby new gatsby-starter-markdown https://github.com/cvluca/gatsby-starter-markdown
+[Node 10 or above](https://nodejs.org/en/download/)
+
+### Optional but recommended
+
+Some editor like [VS Code](https://code.visualstudio.com/)
+
+## Create and initialize a project
+
+From a commandline run
+
+`dotnet new -i JannikB.Glue.NetcoreReact::*` to install the main template.
+
+```
+mkdir my-app
+cd my-app
+dotnet new netcore-react --name MyApp
+npm install
 ```
 
-## Start developing.
+## Start developing
 
-Navigate into your new site’s directory and start it up.
+Execute
 
-```sh
-cd gatsby-starter-markdown/
-gatsby develop
-```
+`npm run start`
+
+and from a second commandline
+
+`dotnet run`
+
+Your site is now running at `http://localhost:5050`
 
 ## Open the source code and start editing!
 
-Your site is now running at `http://localhost:8000`!
+Edit the file xy and save. The website should display the changes withing a few seconds.
 
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-Navigate into your new site’s directory and start it up.
-
-````sh
-cd gatsby-starter-markdown/
-gatsby develop
-```Navigate into your new site’s directory and start it up.
-
-```sh
-cd gatsby-starter-markdown/
-gatsby develop
-```Navigate into your new site’s directory and start it up.
-
-```sh
-cd gatsby-starter-markdown/
-gatsby develop
-```Navigate into your new site’s directory and start it up.
-
-```sh
-cd gatsby-starter-markdown/
-gatsby develop
-````
-
-## Open the source code and start editing!123
-
-Your site is now running at `http://localhost:8000`!
-
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-
-## Open the source code and start editing!23452345
-
-Your site is now running at `http://localhost:8000`!
-
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-
-## Open the source code and start editing!23452345
-
-Your site is now running at `http://localhost:8000`!
-
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-
-## Open the source code and start editing!456745676
-
-Your site is now running at `http://localhost:8000`!
-
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
-\_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
+TODO: Quick tutorial: add a property in the backend, add a property in the form => result

@@ -1,7 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'docs',
-    centerTitle: 'DOCS',
+    title: 'Glue',
   },
   plugins: [
     `gatsby-plugin-typescript`,

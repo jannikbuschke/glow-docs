@@ -16,9 +16,12 @@ const IndexPage = () => {
               fontWeight: 'bold',
             }}
           >
-            Gatsby Markdown Starter
+            Glue
           </p>
-          <h2>Boilerplate for markdown-based website</h2>
+          <h2>
+            .NET Core + React + libraries + boilerplate for modular webbased
+            applications
+          </h2>
           <br />
           <Link to="/docs/get-started/introduction">
             <Button type="primary" size="large" style={{ marginRight: 10 }}>
