@@ -8,8 +8,6 @@ parents: ['Get Started']
   Quick Start
 </h1>
 
-The website is based on Gatsby, full documentation for Gatsby lives [on the website](https://gatsbyjs.org/).
-
 ## Prerequisites
 
 [.NET Core 2.1 or above](https://dotnet.microsoft.com/download/dotnet-core/2.1)

@@ -30,11 +30,16 @@ In that sense the glue project tries to give a highly productive setup while not
 
 ## Probably upcoming Features
 
-- Ready-to-use Business Modules (i.e. Audit-Log, Workflow, etc...)
+- Ready-to-use Business Modules (i.e. Audit-Log, Workflow etc...)
 - Security (Asp .Net Core + IdentityServer)
 - Datafetching (Suspense)
 - Live/Bidirectional communication (SignalR)
 - Hot Module Replacement (HRM) for React
+
+## Evaluating
+
+- Workflow Core
+- GraphQL
 
 ## Extended
 
