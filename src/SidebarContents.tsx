@@ -118,6 +118,8 @@ export const SidebarContents = ({ root }: Props) => {
         // const path = location.pathname.replace(pathPrefix.slice(0, -1), '')
 
         const defaultOpenKeys = dir.map(item => item.key)
+        console.log({ defaultOpenKeys })
+        console.log("pathname", window.location.pathname)
         return (
           <Menu
             mode="inline"
