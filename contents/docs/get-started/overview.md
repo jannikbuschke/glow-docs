@@ -5,14 +5,20 @@ parents: ['Get Started']
 ---
 
 <h1 align="center">
-Overview
+Glue stack Overview
 </h1>
 
 # Core technologies
 
 ## React
 
-## Asp Net Core
+A declarative, component based, high performance JavaScript library for building user interfaces
+
+## ASP.NET Core
+
+https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-2.2
+
+Cross-platform, high performance (backend) web framework
 
 # Core libaries
 
