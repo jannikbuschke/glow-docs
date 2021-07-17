@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Glue',
+    title: 'Glow',
   },
   plugins: [
     `gatsby-plugin-typescript`,
@@ -65,5 +65,5 @@ module.exports = {
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],
-  pathPrefix: '/glue',
+  pathPrefix: '/glow',
 }
