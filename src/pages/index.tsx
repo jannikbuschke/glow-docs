@@ -13,15 +13,9 @@ const IndexPage = () => {
           fontWeight: 'bold',
         }}
       >
-        Gatsby Ant Design Docs Boilerplate
+        Glow app framework
       </p>
-      <h2>A gatsby starter to create documentation websites</h2>
-      <p>
-        This is a fork of{' '}
-        <a href="https://github.com/cvluca/gatsby-starter-markdown">
-          https://github.com/cvluca/gatsby-starter-markdown
-        </a>
-      </p>
+      <h2>A webapp framework build with ASP.NET Core and react.js</h2>
       <br />
       <Button.Group size="large">
         <Button
@@ -35,7 +29,7 @@ const IndexPage = () => {
         <Button
           size="large"
           icon={<GithubOutlined />}
-          href="https://github.com/jannikbuschke/gatsby-antd-docs"
+          href="https://github.com/jannikbuschke/glow"
           target="_blank"
         >
           Github
