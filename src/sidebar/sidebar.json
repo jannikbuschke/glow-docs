@@ -3,8 +3,9 @@
     "name": "Get Started",
     "link": "",
     "items": [
-      { "name": "Introduction", "link": "/docs/get-started/intro" },
-      { "name": "Overview", "link": "/docs/get-started/overview" }
+      { "name": "Introduction", "link": "/docs/get-started/introduction" },
+      { "name": "Overview", "link": "/docs/get-started/overview" },
+      { "name": "Get started", "link": "/docs/get-started/quick_start" }
     ]
   },
   {

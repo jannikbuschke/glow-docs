@@ -4,47 +4,52 @@ root: '/docs'
 parents: ['Get Started']
 ---
 
-<h1 align="center">
-  Quick Start
-</h1>
+# Quick start
 
 ## Prerequisites
 
-[.NET Core 2.1 or above](https://dotnet.microsoft.com/download/dotnet-core/2.1)
+First we need to install [.NET Core](https://dotnet.microsoft.com/download) (SDK) and [Node.js](https://nodejs.org/en/download/)
 
-[Node 10 or above](https://nodejs.org/en/download/)
+Additionally we need some editor like [VS Code](https://code.visualstudio.com/), [Visual Studio](https://visualstudio.microsoft.com/) or [Rider](https://www.jetbrains.com/rider/)
 
-### Optional but recommended
+VS Code for frontend/react and Visual Studio for backend/c# editing are probably good choices.
 
-Some editor like [VS Code](https://code.visualstudio.com/)
+If you use a Windows OS you might also want to install Windows Terminal.
 
 ## Create and initialize a project
 
 From a commandline run
 
-`dotnet new -i JannikB.Glue.NetcoreReact::*` to install the main template.
+`dotnet new -i Glow.App.Template::*` to install the main template.
 
 ```
 mkdir my-app
 cd my-app
-dotnet new netcore-react --name MyApp
-npm install
+dotnet new glow-app --name MyApp
+cd MyApp
+npm install web
 ```
 
 ## Start developing
 
-Execute
+Open a terminal and navigate to the frontend folder to start the frontend dev server:
 
-`npm run start`
+```
+cd MyApp\web
+npm run start
+```
 
-and from a second commandline
+The frontend dev server is running and watching for changes.
 
-`dotnet run`
+In a second terminal start the backend:
 
-Your site is now running at `http://localhost:5050`
+```
+cd MyApp
+dotnet watch run
+```
+
+Your site is now running at `https://localhost:5001`
 
 ## Open the source code and start editing!
 
-Edit the file xy and save. The website should display the changes withing a few seconds.
-
-TODO: Quick tutorial: add a property in the backend, add a property in the form => result
+When editing frontend files, the webapp should refresh automatically. Editing the backend should result in restarting the backend.
