@@ -23,8 +23,6 @@ From a commandline run
 `dotnet new -i Glow.App.Template::*` to install the main template.
 
 ```
-mkdir my-app
-cd my-app
 dotnet new glow-app --name MyApp
 cd MyApp
 npm install web
